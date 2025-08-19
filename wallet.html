@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" 
+  <title>Wallet — Totaphysics</title>
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/backgrounds.css">
+  <link rel="stylesheet" href="assets/css/colorful.css" > 
+</head>
+<body class="bg-wallet">
+<header class="site">
+  <div class="wrap nav">
+    <div class="brand">Totaphysics</div>
+    <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navList">☰ Menu</button>
+    <ul id="navList">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lawbook.html">Lawbook</a></li>
+      <li><a href="library.html">Library</a></li>
+      <li><a href="labs.html">Labs</a></li>
+      <li><a href="simulation.html">Simulation</a></li>
+      <li><a href="institute.html">Institute</a></li>
+      <li><a href="ai.html">AI</a></li>
+      <li><a href="dao.html">DAO</a></li>
+      <li><a href="wallet.html">Wallet</a></li>
+      <li><a href="crowdfund.html">Crowdfund</a></li>
+      <li><a href="donate.html">Donate</a></li>
+      <li><a href="press.html">Press</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="docs/index.html">Docs</a></li>
+    </ul>
+    <button id="themeToggle" class="theme-toggle" title="Toggle theme">☀︎/☾</button>
+  </div>
+</header>
+
+  
+<main class="wrap section">
+    
+  <h1 class="gold center">🔐 Wallet</h1>
+  <p class="center tiny">Polygon (PoS) donation & treasury wallet</p>
+  <div class="card">
+    <h3>Donation Wallet (from config)</h3>
+    <p>Address (Polygon): <code id="walletAddress">Loading…</code></p>
+    <p>Token (IYA) Contract: <code id="tokenContract">Loading…</code></p>
+    <p><a class="btn" id="openQuickswap" target="_blank" rel="noopener">Open QuickSwap</a></p>
+  </div>
+  <script>
+    (function(){
+      const c = window.TOTAPHYSICS_CONFIG||{};
+      document.getElementById('walletAddress').textContent = c.donationWalletPolygon || '—';
+      document.getElementById('tokenContract').textContent = c.iyamegeTokenContract || '—';
+      const link = document.getElementById('openQuickswap');
+      link.href = c.quickswapUrl || '#';
+    })();
+  </script>
+
+  </main>
+  
+<footer class="site">
+  <div class="wrap">© <span id="year"></span> Totaphysics — Scroll Civilization of the Eternal</div>
+</footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
